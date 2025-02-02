@@ -1,3 +1,110 @@
+# Mars Made Hugo Blox and Shortcodes
+
+這個倉庫包含了一系列自製的 Hugo Shortcodes 和 Blox，可以幫助你更快速地建立美觀的 Hugo 網站。
+
+This repository contains a collection of custom Hugo Shortcodes and Blox to help you build beautiful Hugo websites more efficiently.
+
+## 目錄
+
+[Demo site - Shortcodes](https://anelive.today/hugo-blox-tutorial/mars-made-shortcodes/)
+
+
+- [customized-callout](#customized-callout) - 可自定義的提示框
+- [link-preview-card](#link-preview-card) - 美觀的連結預覽卡片
+- [universal-announcement](#universal-announcement) - 通用公告區塊
+- [toc-block](#toc-block) - 可摺疊的文章目錄 
+
+## 📦 可用元件 Available Components
+
+### Shortcodes
+
+- `customized-callout`: 可自定義的提示框
+  - 支援不同類型(info, warning)
+  - 可自定義標題和內容
+  - 包含圖示和樣式
+
+- `link-preview-card`: 美觀的連結預覽卡片
+  - 支援圖片、標題、描述
+  - 顯示網站域名和日期
+  - 響應式設計
+
+- `universal-announcement`: 通用公告區塊
+  - 顯示最新消息列表
+  - 可自定義連結和標題
+  - 簡潔的設計風格
+
+- `toc-block`: 可摺疊的文章目錄
+  - 自動生成目錄
+  - 可摺疊/展開
+  - 支援多層級目錄
+  - 美觀的樣式和動畫
+
+### Blox
+
+- 待新增...
+
+
+## 💡 如何使用 How to Use
+
+### Shortcodes 使用方式
+
+1. 找到你想使用的 Shortcode (位於 `shortcodes/` 目錄)
+2. 將檔案複製到你的 Hugo 專案的 `layouts/shortcodes/` 目錄中
+3. 在你的 Markdown 內容中使用 Shortcode:
+   ```markdown
+   {{</* shortcode-name */>}}
+   ```
+
+### Blox 使用方式
+
+1. 在你的 Hugo 專案的 `config/_default/config.yaml` 中加入:
+   ```yaml
+   module:
+     imports:
+       - path: github.com/mm-xyz/mars-made-hugo-blox-and-shortcodes
+   ```
+
+2. 在你的頁面中使用 Blox:
+   ```markdown
+   ---
+   type: landing
+
+   sections:
+     - block: 'github.mm-xyz.block-name'
+       content:
+         title: 標題
+         text: 內容
+   ---
+   ```
+
+## 🛠️ 開發指南 Development Guide
+
+### 新增 Shortcode
+
+1. 在 `shortcodes/` 目錄下建立新的 `.html` 檔案
+2. 實作 Shortcode 功能
+3. 更新本 README 的可用元件清單
+
+### 新增 Blox
+
+1. 在 `blox/` 目錄下建立新的 `.html` 和 `.css` 檔案 (如果需要)
+2. 檔案命名格式: `github.mm-xyz.block-name.html`
+3. 實作 Blox 功能
+4. 更新本 README 的可用元件清單
+
+## 📄 授權 License
+
+本專案採用 MIT 授權條款 - 詳見 [LICENSE.md](LICENSE.md) 檔案。
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## 🤝 貢獻 Contributing
+
+歡迎提交 Pull Request 來改善或新增功能！
+
+Pull requests are welcome to improve or add new features!
+
+
 # [Create Hugo Blox](https://github.com/HugoBlox/create-blox)
 
 **Looking to build and publish a new [Hugo Blox](https://hugoblox.com/blocks/)?**

@@ -1,0 +1,54 @@
+<div class="sync-section">
+  <div class="sync-content">
+    <h3>最新消息</h3>
+    <ul>
+      {{ $announcements := slice
+        (dict "title" "2024 AI 研討會報名開始" "url" "https://ai-conference-2024.com")
+        (dict "title" "新課程上線：機器學習實戰" "url" "https://your-course-link.com")
+        (dict "title" "技術文件更新通知" "url" "https://your-docs-link.com")
+      }}
+      
+      {{ range $announcements }}
+      <li>
+        <a href="{{ .url }}" target="_blank">
+          {{ .title }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>
+
+<style>
+.sync-section {
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  border: 1px solid currentColor;
+  color: var(--bs-body-color);
+}
+
+.sync-section h3 {
+  margin-top: 0;
+  color: inherit;
+}
+
+.sync-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sync-section li {
+  margin: 0.5rem 0;
+}
+
+.sync-section a {
+  color: #dda408;
+  text-decoration: none;
+}
+
+.sync-section a:hover {
+  text-decoration: underline;
+}
+</style> 
