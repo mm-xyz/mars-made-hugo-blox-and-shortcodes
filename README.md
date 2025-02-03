@@ -8,11 +8,11 @@ This repository contains a collection of custom Hugo Shortcodes and Blox to help
 
 [Demo site - Shortcodes](https://anelive.today/hugo-blox-tutorial/mars-made-shortcodes/)
 
-
 - [customized-callout](#customized-callout) - 可自定義的提示框
 - [link-preview-card](#link-preview-card) - 美觀的連結預覽卡片
 - [universal-announcement](#universal-announcement) - 通用公告區塊
-- [toc-block](#toc-block) - 可摺疊的文章目錄 
+- [toc-block](#toc-block) - 可摺疊的文章目錄
+- [tag-cloud](#tag-cloud) - 動態標籤雲
 
 ## 📦 可用元件 Available Components
 
@@ -38,6 +38,13 @@ This repository contains a collection of custom Hugo Shortcodes and Blox to help
   - 可摺疊/展開
   - 支援多層級目錄
   - 美觀的樣式和動畫
+
+- `tag-cloud`: 動態標籤雲
+  - 根據使用頻率自動調整字體大小
+  - 懸停效果和動畫
+  - 支援自定義顏色和樣式
+  - 響應式設計
+  - 支援深色模式
 
 ### Blox
 
