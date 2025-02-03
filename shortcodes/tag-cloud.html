@@ -1,0 +1,78 @@
+{{/* 取得參數,設定預設值 */}}
+{{ $taxonomy := .Get "taxonomy" | default "tags" }}
+{{ $count := .Get "count" | default 20 }}
+{{ $fontMin := .Get "font_size_min" | default 1 }}
+{{ $fontMax := .Get "font_size_max" | default 2.5 }}
+{{ $title := .Get "title" }}
+{{ $columns := .Get "columns" | default 12 }}
+
+<div class="tag-cloud-shortcode">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-{{ $columns }}">
+        {{- with $title }}
+        <h2 class="tag-cloud-title">{{ . | markdownify }}</h2>
+        {{- end }}
+        
+        <div class="tag-cloud">
+          {{ $taxonomyData := index $.Site.Taxonomies $taxonomy }}
+          {{ $first := index ($taxonomyData.ByCount) 0 }}
+          {{ range first $count $taxonomyData.ByCount }}
+          {{ $fontSize := math.Max $fontMin (mul (div .Count $first.Count) $fontMax) }}
+          <a href="{{ .Page.RelPermalink }}" 
+             data-font-size="{{ $fontSize }}"
+             class="tag-cloud-item"
+             style="--random-margin: {{ math.Mod (add (mul .Count 7) 13) 5 }}px">
+            {{ .Page.Title }}
+          </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.tag-cloud-shortcode {
+  padding: 2rem 0;
+  position: relative;
+}
+
+.tag-cloud-title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.tag-cloud {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.3;
+}
+
+.tag-cloud-item {
+  display: inline-block;
+  color: var(--bs-body-color);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  margin: calc(var(--random-margin, 2px));
+  border-radius: 2rem;
+  background: rgba(var(--bs-primary-rgb), 0.08);
+  transition: all 0.3s ease;
+  font-size: calc(var(--font-size) * 1rem);
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.tag-cloud-item:hover {
+  background: rgba(var(--bs-primary-rgb), 0.15);
+  transform: translateY(-2px) rotate(calc(var(--random-margin) * 0.5deg));
+  text-decoration: none;
+}
+</style>
+
+<script>
+document.querySelectorAll('.tag-cloud-item[data-font-size]').forEach(item => {
+  item.style.setProperty('--font-size', item.dataset.fontSize);
+});
+</script> 
